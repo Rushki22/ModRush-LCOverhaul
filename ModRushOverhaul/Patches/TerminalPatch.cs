@@ -105,9 +105,9 @@ namespace ModRushOverhaul.Patches {
         private static List<GrabbableObject> getShipItems() {
 
             List<GrabbableObject> list = (
-                from obj in GameObject.Find("/Environment/HangarShip").GetComponentsInChildren<GrabbableObject>()
-                where obj.scrapValue != 0 && obj.name != "ClipboardManual" && obj.name != "StickyNoteItem"
-                select obj
+                from sellableObject in GameObject.Find("/Environment/HangarShip").GetComponentsInChildren<GrabbableObject>()
+                where sellableObject.scrapValue != 0 && sellableObject.name != "ClipboardManual" && sellableObject.name != "StickyNoteItem"
+                select sellableObject
             ).ToList();
 
             return list;

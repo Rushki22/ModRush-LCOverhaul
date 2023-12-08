@@ -14,15 +14,15 @@ namespace ModRushOverhaul.Patches {
             switch (flashlightID) {
 
                 case Flashlights.ProFlashlight:
-                    __instance.itemProperties.batteryUsage = 600;
+                    __instance.itemProperties.batteryUsage = 450;
                     break;
 
                 case Flashlights.Flashlight:
-                    __instance.itemProperties.batteryUsage = 280;
+                    __instance.itemProperties.batteryUsage = 210;
                     break;
 
                 case Flashlights.LaserPointer:
-                    __instance.itemProperties.batteryUsage = 420;
+                    __instance.itemProperties.batteryUsage = 275;
                     break;
 
                 default:
@@ -33,7 +33,7 @@ namespace ModRushOverhaul.Patches {
         [HarmonyPatch(typeof(WalkieTalkie), "ItemActivate")]
         [HarmonyPostfix]
         private static void walkieTalkieBattery(ref WalkieTalkie __instance) {
-            __instance.itemProperties.batteryUsage = 1000;
+            __instance.itemProperties.batteryUsage = 500;
         }
 
         [HarmonyPatch(typeof(JetpackItem), "ItemActivate")]
@@ -45,7 +45,7 @@ namespace ModRushOverhaul.Patches {
         [HarmonyPatch(typeof(BoomboxItem), "ItemActivate")]
         [HarmonyPrefix]
         private static void hardbassLife(ref BoomboxItem __instance) {
-            __instance.itemProperties.batteryUsage = 450;
+            __instance.itemProperties.batteryUsage = 250;
         }
     }
 }

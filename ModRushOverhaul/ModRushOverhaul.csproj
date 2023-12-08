@@ -68,12 +68,15 @@
   <ItemGroup>
     <Compile Include="enums\Flashlights.cs" />
     <Compile Include="Patches\BatteryItemsPatch.cs" />
+    <Compile Include="Patches\DoorLockPatch.cs" />
     <Compile Include="Patches\ItemDropshipPatch.cs" />
     <Compile Include="Patches\PlayerControllerBPatch.cs" />
     <Compile Include="Patches\ShipTeleporterPatch.cs" />
+    <Compile Include="Patches\RoundManagerPatch.cs" />
     <Compile Include="Patches\TerminalPatch.cs" />
     <Compile Include="Patches\TimeOfDayPatch.cs" />
     <Compile Include="Plugin.cs" />
+    <Compile Include="PluginConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -17,19 +17,17 @@ namespace ModRushOverhaul.Patches {
         [HarmonyPrefix] // Do it before original code
         private static bool doNotLoseItemsInverse(ref int playerObj, ref Vector3 teleportPos) {
 
-            if (StartOfRound.Instance.allPlayerScripts[playerObj].isPlayerDead) {
-
+            if (StartOfRound.Instance.allPlayerScripts[playerObj].isPlayerDead)
+            {
                 StartCoroutine(teleportBodyOut(playerObj, teleportPos));
-                return false; // Cancel original code
+                return false;
             }
-
             PlayerControllerB playerControllerB = StartOfRound.Instance.allPlayerScripts[playerObj];
             SetPlayerTeleporterId(playerControllerB, -1);
-            // Removed DropAllHeldItems() method
-
             if ((bool)Object.FindObjectOfType<AudioReverbPresets>())
+            {
                 Object.FindObjectOfType<AudioReverbPresets>().audioPresets[2].ChangeAudioReverbForPlayer(playerControllerB);
-
+            }
             playerControllerB.isInElevator = false;
             playerControllerB.isInHangarShipRoom = false;
             playerControllerB.isInsideFactory = true;
@@ -39,12 +37,12 @@ namespace ModRushOverhaul.Patches {
             StartOfRound.Instance.allPlayerScripts[playerObj].beamOutParticle.Play();
             shipTeleporterAudio.PlayOneShot(teleporterBeamUpSFX);
             StartOfRound.Instance.allPlayerScripts[playerObj].movementAudio.PlayOneShot(teleporterBeamUpSFX);
-            if (playerControllerB == GameNetworkManager.Instance.localPlayerController) {
-
+            if ((Object)(object)playerControllerB == (Object)(object)GameNetworkManager.Instance.localPlayerController)
+            {
                 Debug.Log("Teleporter shaking camera");
                 HUDManager.Instance.ShakeCamera(ScreenShakeType.Big);
             }
-            return false; // Cancel original code
+            return false;
         }
 
         // Just for the method to work

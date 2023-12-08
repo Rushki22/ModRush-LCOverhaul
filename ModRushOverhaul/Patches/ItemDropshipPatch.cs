@@ -19,7 +19,7 @@ namespace ModRushOverhaul.Patches {
         private static List<int> orderedItemsFromTerminal;
 
         // Settings
-        private static float howFast = 8; // sec
+        private static float howFast = Plugin.cfg.dropshipTimeToArrive; // sec
         private static float willStay = 60; // sec
 
         // Init Dropship
@@ -37,9 +37,8 @@ namespace ModRushOverhaul.Patches {
         [HarmonyPrefix]
         public static void dropshipUpdate(ItemDropship __instance) {
 
-            if (__instance.IsServer && !__instance.deliveringOrder && terminalScript.orderedItemsFromTerminal.Count > 0 && !playersManager.shipHasLanded) {
+            if (__instance.IsServer && !__instance.deliveringOrder && terminalScript.orderedItemsFromTerminal.Count > 0 && !playersManager.shipHasLanded)
                 __instance.shipTimer += Time.deltaTime;
-            }
         }
 
         // Some IL code stuff to hard to explain. But its Overwriting the code on specified place
@@ -49,19 +48,13 @@ namespace ModRushOverhaul.Patches {
             List<CodeInstruction> codes = new List<CodeInstruction>(instructions);
             for (int i = 0; i < codes.Count; i++) {
 
-                if (codes[i].opcode == OpCodes.Ldc_R4) {
-
-                    if ((float)codes[i].operand == 20f) {
-                        codes[i].operand = (float)willStay;
-                    }
-                    else if ((float)codes[i].operand == 40f) {
-                        codes[i].operand = (float)(willStay + howFast);
-                    }
+                if (codes[i].opcode == OpCodes.Ldc_R4)
+                    if ((float)codes[i].operand == 20f) codes[i].operand = (float)willStay;
+                    else if ((float)codes[i].operand == 40f) codes[i].operand = (float)(willStay + howFast);
                     else if ((float)codes[i].operand == 30f) {
                         codes[i].operand = (float)willStay;
                         break;
                     }
-                }
             }
             return codes.AsEnumerable();
         }
@@ -71,14 +64,12 @@ namespace ModRushOverhaul.Patches {
         [HarmonyPrefix]
         public static void addLateItemsServer(ItemDropship __instance) {
 
-            if (__instance.IsServer && __instance.shipLanded && !__instance.shipDoorsOpened) {
-
+            if (__instance.IsServer && __instance.shipLanded && !__instance.shipDoorsOpened) 
                 while (orderedItemsFromTerminal.Count > 0 && itemsToDeliver.Count < 12) {
 
                     itemsToDeliver.Add(orderedItemsFromTerminal[0]);
                     orderedItemsFromTerminal.RemoveAt(0);
                 }
-            }
         }
 
         // Get ordered items
