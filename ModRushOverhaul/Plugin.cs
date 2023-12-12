@@ -29,7 +29,7 @@ namespace ModRushOverhaul {
             mls.LogWarning("The Company...");
             if (cfg.usePremiumBatterys) {
                 harmony.PatchAll(typeof(BatteryItemsPatch));
-                mls.LogWarning("...bought better Batterys.");
+                mls.LogWarning("...bought better Batteries.");
             }
             if (cfg.keepItemsOnTeleport) {
 
@@ -39,7 +39,7 @@ namespace ModRushOverhaul {
             if (cfg.useStaminaRework) {
 
                 harmony.PatchAll(typeof(PlayerControllerBPatch));
-                mls.LogWarning("...got you a Gym subscribtion.");
+                mls.LogWarning("...got you a Gym subscription.");
             }
             harmony.PatchAll(typeof(ItemDropshipPatch));
             mls.LogWarning("...now pays Amazon Premium.");

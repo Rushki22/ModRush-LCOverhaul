@@ -48,7 +48,7 @@ namespace ModRushOverhaul.Patches {
         [HarmonyPrefix]
         private static void spawnEnemysFaster(RoundManager __instance) {
             if (Plugin.cfg.longerDay) {
-                __instance.currentLevel.spawnProbabilityRange = 4.5f;
+                __instance.currentLevel.spawnProbabilityRange = 7f;
                 __instance.currentLevel.maxEnemyPowerCount = 12;
             }
         }

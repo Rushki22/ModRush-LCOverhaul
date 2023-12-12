@@ -8,6 +8,6 @@ namespace ModRushOverhaul.Patches {
 
         [HarmonyPatch("Start")]
         [HarmonyPostfix]
-        private static void longerDay(TimeOfDay __instance) { __instance.globalTimeSpeedMultiplier = 0.90f; } // -10%
+        private static void longerDay(TimeOfDay __instance) { __instance.globalTimeSpeedMultiplier = 0.95f; } // -5%
     }
 }

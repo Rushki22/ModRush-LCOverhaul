@@ -55,6 +55,6 @@ namespace ModRushOverhaul.Patches {
         // Lower cooldown for inverse teleporter to 60sec
         [HarmonyPatch("Awake")]
         [HarmonyPrefix]
-        private static void lowerCooldown(ref float ___cooldownAmount) { ___cooldownAmount = 60f; }
+        private static void lowerCooldown(ref float ___cooldownAmount, ref bool ___isInverseTeleporter) { if(___isInverseTeleporter) ___cooldownAmount = 60f; }
     }
 }
