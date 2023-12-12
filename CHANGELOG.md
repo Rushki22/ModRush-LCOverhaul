@@ -3,6 +3,17 @@
 ## [Unreleased]
 
 
+## [1.0.1] - 2023-12-13
+
+### Changed
+
+- Grammar correction
+- Duration of the day
+
+### Fixed
+
+- Cooldown were applied to both teleporters
+
 
 ## [1.0.0] - 2023-12-08
 

@@ -23,7 +23,9 @@ To configure some settings, open the config file located in *"Lethal Company/Bed
 - Drop-ship arrives faster
 - The day is longer but also **can** be more dangerous
 
-*Note: Most of these configurable features have fixed values, to not unbalance the game. You just decide if you want to enable it or not.*
+*Note: Most of these configurable features have fixed values, to not unbalance the game. You just decide if you want to enable it or not. Also some values are disabled by default. So check the config file.*
+
+***Thanks to my friends for testing*** 😄
 
 ## License
 
